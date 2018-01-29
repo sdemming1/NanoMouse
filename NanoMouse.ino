@@ -8,8 +8,8 @@ const byte buttonPin = 9;
 
 NanoMouseMotors motors;
 
-//<3,A6> is the front emitter and front detector
-NanoMouseSensors<3,A6> sensors; //A6 is passed as front detector
+//<left Emitter,left Detector,front Emitter, front Detector, right Emitter, right Detector>
+NanoMouseSensors<4,A7,3,A6,2,A5> sensors;
 
 //Main
 void setup() 
