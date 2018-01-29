@@ -1,25 +1,29 @@
 #include <Arduino.h>
 
-template <byte frontEmitter, byte frontDetector>
+template <byte leftEmitter, byte leftDetector, byte frontEmitter, byte frontDetector, byte rightEmitter, byte rightDetector>
 
 class NanoMouseSensors
 {
 
-  public:
+public:
+    void configure()
+    {
+      pinMode(leftEmitter, OUTPUT);
+      pinMode(frontEmitter, OUTPUT);
+      pinMode(rightEmitter, OUTPUT);
 
-  void configure()
-  {
-    pinMode(frontEmitter,OUTPUT);
+      digitalWrite(leftEmitter, HIGH);
+      digitalWrite(frontEmitter, HIGH);
+      digitalWrite(rightEmitter, HIGH);
+    }
 
-
-    digitalWrite(frontEmitter,HIGH);
-    
-  }
-  
-  void view()
-  {
-    Serial.println(analogRead(frontDetector));
-  }
-
+    void view()
+    {
+      Serial.print(analogRead(leftDetector));
+      Serial.print("\t");
+      Serial.print(analogRead(frontDetector));
+      Serial.print("\t");
+      Serial.println(analogRead(rightDetector));
+    }
 };
 
