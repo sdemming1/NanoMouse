@@ -5,7 +5,6 @@
 const byte ledPin = 13;
 const byte buttonPin = 9;
 
-
 NanoMouseMotors motors;
 
 //<left Emitter,left Detector,front Emitter, front Detector, right Emitter, right Detector>
@@ -20,20 +19,16 @@ void setup()
   pinMode(buttonPin,INPUT_PULLUP);
 
   sensors.configure();
-
   Serial.begin(9600);
   
   while(digitalRead(buttonPin))
   {
   }
-  
-  //motors.square(RIGHT,2);
 }
 
 void loop() 
 {
-
-  //digitalWrite(ledPin,HIGH);
+  sensors.sense();
   sensors.view();
-  delay(100);
+  //delay(100);
 }
